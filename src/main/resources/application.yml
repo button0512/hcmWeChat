@@ -1,0 +1,40 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /hcm
+
+spring:
+  application:
+    name: WeChat
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: true
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  datasource:
+    dataSourceMap:
+      db1:
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/hcm?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=false
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: root123
+        auto-commit: true
+        maximum-pool-size: 500
+        minimum-idle: 5
+        idle-timeout: 60000
+        connection-test-query: select 1
+        connection-timeout: 5000
+
+logging:
+  level:
+    root: info
+    com.hworld.yh: info
